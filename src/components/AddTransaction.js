@@ -17,7 +17,7 @@ export const AddTransaction = () => {
             placeholder="Transction name..."
             type="text"
             value={transaction}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => setTransaction(e.target.value)}
           />
         </div>
         <div className="form-control">
