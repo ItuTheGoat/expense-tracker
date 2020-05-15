@@ -6,7 +6,6 @@ export const TransactionList = () => {
   // Set up the context hook to use the global context
   const { transactions } = useContext(GlobalContext);
 
-  console.log(transactions);
   return (
     <>
       <h3>History</h3>
