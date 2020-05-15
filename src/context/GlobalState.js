@@ -9,6 +9,7 @@ const initialState = {
     { id: 2, transaction: "food", amount: -3000 },
     { id: 3, transaction: "clothes", amount: -1200 },
     { id: 4, transaction: "entertainment", amount: -1000 },
+    { id: 5, transaction: "side hustle", amount: 8000 },
   ],
 };
 
