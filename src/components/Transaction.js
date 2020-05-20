@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 export const Transaction = ({ transaction }) => {
   // conditions that determine the transactions color and sign.
   const sign = transaction.amount < 0 ? "-" : "+";
   const classColor = sign === "-" ? "minus" : "plus";
+
+  // Function that allows us to delete
+  const { deleteTransaction } = useContext(GlobalContext);
 
   return (
     <div>
@@ -12,7 +16,12 @@ export const Transaction = ({ transaction }) => {
         <span>
           {sign}R{Math.abs(transaction.amount)}
         </span>
-        <button className="delete-btn">X</button>
+        <button
+          className="delete-btn"
+          onClick={() => deleteTransaction(transaction.id)}
+        >
+          X
+        </button>
       </li>
     </div>
   );

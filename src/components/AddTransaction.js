@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 export const AddTransaction = () => {
   // Initialize hooks for thhis component.
