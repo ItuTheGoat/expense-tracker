@@ -19,6 +19,10 @@ export const AddTransaction = () => {
       amount: +amount,
     };
 
+    // This allows the form to be cleared after a transaction is added.
+    setTransaction("");
+    setAmount(0);
+
     addTransaction(newTransaction);
   };
   return (
