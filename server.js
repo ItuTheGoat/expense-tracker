@@ -6,7 +6,11 @@ const colors = require("colors");
 /* 'morgan' is a logger middleware for HTTP requests */
 const morgan = require("morgan");
 
+const connectDB = require("./config/db");
+
 dotenv.config({ path: "./config/config.env" });
+
+connectDB();
 
 /* Get the export */
 const transactions = require("./routes/transactions");
