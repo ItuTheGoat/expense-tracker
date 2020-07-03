@@ -1,10 +1,16 @@
 // Reducer specify what happens to the state depending on certain actions
 export default (state, action) => {
   switch (action.type) {
+    case "GET_TRANSACTIONS":
+      return {
+        ...state,
+        loading: false,
+        transactions: action.payload,
+      };
     case "ADD_TRANSACTION":
       return {
         ...state,
-        transactions: [action.payload, ...state.transactions],
+        transactions: [...state.transactions, action.payload],
       };
     case "DELETE_TRANSACTION":
       return {
@@ -12,6 +18,11 @@ export default (state, action) => {
         transactions: state.transactions.filter(
           (transaction) => transaction.id !== action.payload
         ),
+      };
+    case "TRANSACTION_ERROR":
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
