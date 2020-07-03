@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 const colors = require("colors");
 /* 'morgan' is a logger middleware for HTTP requests */
 const morgan = require("morgan");
+/* cors middleware that tells the server to allow requests from different origins */
+const cors = require("cors");
 
 const connectDB = require("./config/db");
 
@@ -19,6 +21,8 @@ const app = express();
 
 // Body parser in order to use req.* in tController
 app.use(express.json());
+
+app.use(cors());
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));

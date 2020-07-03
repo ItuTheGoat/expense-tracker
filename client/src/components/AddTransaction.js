@@ -4,7 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 export const AddTransaction = () => {
   // Initialize hooks for thhis component.
 
-  const [transaction, setTransaction] = useState("");
+  const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
 
   // Dispatching actions
@@ -15,12 +15,12 @@ export const AddTransaction = () => {
 
     const newTransaction = {
       id: Math.floor(Math.random() * 100000000),
-      transaction,
+      text,
       amount: +amount,
     };
 
     // This allows the form to be cleared after a transaction is added.
-    setTransaction("");
+    setText("");
     setAmount(0);
 
     addTransaction(newTransaction);
@@ -33,10 +33,10 @@ export const AddTransaction = () => {
           <label htmlFor="transaction">Transaction:</label>
           <input
             name="transaction"
-            placeholder="Transction name..."
+            placeholder="Transaction name..."
             type="text"
-            value={transaction}
-            onChange={(e) => setTransaction(e.target.value)}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
           />
         </div>
         <div className="form-control">
