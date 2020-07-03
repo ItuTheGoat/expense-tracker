@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { Transaction } from "./Transaction";
+import { numberWithCommas } from "../utils/format";
 
 export const TransactionList = () => {
   // Set up the context hook to use the global context

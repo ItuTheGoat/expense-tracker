@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import { numberWithCommas } from "../utils/format";
 
 export const Transaction = ({ transaction }) => {
   // conditions that determine the transactions color and sign.
@@ -12,9 +13,9 @@ export const Transaction = ({ transaction }) => {
   return (
     <div>
       <li className={classColor}>
-        {transaction.transaction}
+        {transaction.text}
         <span>
-          {sign}R{Math.abs(transaction.amount)}
+          {sign}R{numberWithCommas(Math.abs(transaction.amount))}
         </span>
         <button
           className="delete-btn"
