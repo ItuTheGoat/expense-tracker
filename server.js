@@ -17,6 +17,9 @@ const transactions = require("./routes/transactions");
 
 const app = express();
 
+// Body parser in order to use req.* in tController
+app.use(express.json());
+
 /* Link the exported file to the route */
 app.use("/api/v1/transactions", transactions);
 
