@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 /* dotenv allows us to create global variables */
 const dotenv = require("dotenv");
@@ -22,10 +23,15 @@ const app = express();
 // Body parser in order to use req.* in tController
 app.use(express.json());
 
-app.use(cors());
-
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
+  app.use(cors());
+} else if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  );
 }
 
 /* Link the exported file to the route */
